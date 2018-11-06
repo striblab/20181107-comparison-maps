@@ -1,0 +1,64 @@
+echo "R16 ..." &&
+mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-state-longlat.json ./layers/mn-cities-longlat.json snap combine-files \
+  -quiet \
+  -proj webmercator \
+  -colorizer name=calcFill colors='#c0272d,#dfdfdf' categories="R,DFL" nodata='#dfdfdf' \
+  -colorizer name=calcOpacity colors='0.1,0.25,0.5,0.75,1,1' breaks=10,25,100,500,100000 \
+  -style fill='calcFill(winner16pres)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
+  -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
+  -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -simplify 10% \
+  -o ./output/r16.svg combine-layers &&
+
+echo "R16, DGov18 ..." &&
+mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-state-longlat.json ./layers/mn-cities-longlat.json snap combine-files \
+  -quiet \
+  -proj webmercator \
+  -colorizer name=calcFill colors='#0258a0,#dfdfdf' categories="y,n" nodata='#dfdfdf' \
+  -colorizer name=calcOpacity colors='0.1,0.25,0.5,0.75,1,1' breaks=10,25,100,500,100000 \
+  -style fill='calcFill(r16_dgov18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
+  -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
+  -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -simplify 10% \
+  -o ./output/r16-dgov18.svg combine-layers &&
+
+echo "R16, DSen18 ..." &&
+mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-state-longlat.json ./layers/mn-cities-longlat.json snap combine-files \
+  -quiet \
+  -proj webmercator \
+  -colorizer name=calcFill colors='#0258a0,#dfdfdf' categories="y,n" nodata='#dfdfdf' \
+  -colorizer name=calcOpacity colors='0.1,0.25,0.5,0.75,1,1' breaks=10,25,100,500,100000 \
+  -style fill='calcFill(r16_dsen18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
+  -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
+  -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -simplify 10% \
+  -o ./output/r16-dsen18.svg combine-layers &&
+
+echo "R16, DSenSpec18 ..." &&
+mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-state-longlat.json ./layers/mn-cities-longlat.json snap combine-files \
+  -quiet \
+  -proj webmercator \
+  -colorizer name=calcFill colors='#0258a0,#dfdfdf' categories="y,n" nodata='#dfdfdf' \
+  -colorizer name=calcOpacity colors='0.1,0.25,0.5,0.75,1,1' breaks=10,25,100,500,100000 \
+  -style fill='calcFill(r16_dsenspec18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
+  -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
+  -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -simplify 10% \
+  -o ./output/r16-dsenspec18.svg combine-layers &&
+
+echo "DSen18, DSenSpec18 ..." &&
+mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-state-longlat.json ./layers/mn-cities-longlat.json snap combine-files \
+  -quiet \
+  -proj webmercator \
+  -colorizer name=calcFill colors='#c0272d,#dfdfdf' categories="y,n" nodata='#dfdfdf' \
+  -colorizer name=calcOpacity colors='0.1,0.25,0.5,0.75,1,1' breaks=10,25,100,500,100000 \
+  -style fill='calcFill(dsen18_rsenspec18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
+  -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
+  -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -simplify 10% \
+  -o ./output/dsen18-dsenspec18.svg combine-layers
