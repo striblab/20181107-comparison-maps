@@ -7,7 +7,9 @@ mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-st
   -style fill='calcFill(winner16pres)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
   -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
   -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
-  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -filter '"1,2".indexOf(TIER) > -1' target="cities" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY - 3" font-size="1.4em" font-family="Helvetica" stroke='darkgray' stroke-width=0.3 target="cities" \
+  -style where="TIER==2" font-size="1.1em" target="cities" \
   -simplify 10% \
   -o ./output/r16.svg combine-layers &&
 
@@ -20,7 +22,9 @@ mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-st
   -style fill='calcFill(r16_dgov18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
   -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
   -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
-  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -filter '"1,2".indexOf(TIER) > -1' target="cities" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY - 3" font-size="1.4em" font-family="Helvetica" stroke='darkgray' stroke-width=0.3 target="cities" \
+  -style where="TIER==2" font-size="1.1em" target="cities" \
   -simplify 10% \
   -o ./output/r16-dgov18.svg combine-layers &&
 
@@ -33,7 +37,9 @@ mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-st
   -style fill='calcFill(r16_dsen18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
   -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
   -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
-  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -filter '"1,2".indexOf(TIER) > -1' target="cities" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY - 3" font-size="1.4em" font-family="Helvetica" stroke='darkgray' stroke-width=0.3 target="cities" \
+  -style where="TIER==2" font-size="1.1em" target="cities" \
   -simplify 10% \
   -o ./output/r16-dsen18.svg combine-layers &&
 
@@ -46,7 +52,9 @@ mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-st
   -style fill='calcFill(r16_dsenspec18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
   -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
   -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
-  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -filter '"1,2".indexOf(TIER) > -1' target="cities" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY - 3" font-size="1.4em" font-family="Helvetica" stroke='darkgray' stroke-width=0.3 target="cities" \
+  -style where="TIER==2" font-size="1.1em" target="cities" \
   -simplify 10% \
   -o ./output/r16-dsenspec18.svg combine-layers &&
 
@@ -59,6 +67,8 @@ mapshaper -i mn-precincts-geo.json ./layers/mn-roads-longlat.json ./layers/mn-st
   -style fill='calcFill(dsen18_rsenspec18)' opacity='calcOpacity(votes18_sqmi)' target="mn-precincts-geo" \
   -style stroke='#dcdcdc' stroke-width=0.5 target="roads" \
   -style stroke='lightgray' fill="none" stroke-width=1 target="mn-state-longlat" \
-  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY" font-size="1em" font-family="Helvetica" stroke='darkgray' stroke-width=0.5 target="cities" \
+  -filter '"1,2".indexOf(TIER) > -1' target="cities" \
+  -style r=2 label-text='NAME' text-anchor="ANCHOR" dx="DX" dy="DY - 3" font-size="1.4em" font-family="Helvetica" stroke='darkgray' stroke-width=0.3 target="cities" \
+  -style where="TIER==2" font-size="1.1em" target="cities" \
   -simplify 10% \
   -o ./output/dsen18-dsenspec18.svg combine-layers
